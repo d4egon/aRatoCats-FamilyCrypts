@@ -92,17 +92,17 @@
     <Content Include=".git\ms-persist.xml" />
     <Content Include="About\About.xml" />
     <Content Include="About\Preview.png" />
-    <Content Include="Assemblies\aRatoCats-FamilyCrypts.dll" />
-    <Content Include="Defs\example.xml" />
-    <Content Include="Language\example.txt" />
-    <Content Include="Patch\patchexample.xml" />
-    <Content Include="Sounds\sound.mp3" />
-    <Content Include="Textures\example.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".git\objects\info\" />
     <Folder Include=".git\refs\tags\" />
+    <Folder Include="Assemblies\" />
+    <Folder Include="Defs\" />
+    <Folder Include="Language\" />
+    <Folder Include="Patch\" />
+    <Folder Include="Sounds\" />
     <Folder Include="Source\" />
+    <Folder Include="Textures\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
