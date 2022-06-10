@@ -3,7 +3,7 @@
 
 	<ThingDef ParentName="BuildingBase">
 		<defName>FamilyCrypt_PlaceholderOne</defName>
-		<label>sarcophagus</label>
+		<label>Family Crypt Placeholder 1</label>
 		<description>An ornamented burial receptacle for the honored dead.</description>
 		<thingClass>Building_Sarcophagus</thingClass>
 		<graphicData>
@@ -396,7 +396,7 @@
 
 	<ThingDef ParentName="BuildingBase">
 		<defName>FamilyCrypt_PlaceholderFour</defName>
-		<label>Family crypt placeholder 6</label>
+		<label>Family crypt placeholder 4</label>
 		<description>An ornamented burial receptacle for the honored dead.</description>
 		<thingClass>Building_Sarcophagus</thingClass>
 		<graphicData>
