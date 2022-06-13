@@ -33,6 +33,14 @@
     <RootNamespace>FamilyCrypts</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -40,71 +48,24 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <None Include=".git\COMMIT_EDITMSG" />
-    <None Include=".git\config" />
-    <None Include=".git\description" />
-    <None Include=".git\HEAD" />
-    <None Include=".git\hooks\applypatch-msg.sample" />
-    <None Include=".git\hooks\commit-msg.sample" />
-    <None Include=".git\hooks\fsmonitor-watchman.sample" />
-    <None Include=".git\hooks\post-update.sample" />
-    <None Include=".git\hooks\pre-applypatch.sample" />
-    <None Include=".git\hooks\pre-commit.sample" />
-    <None Include=".git\hooks\pre-merge-commit.sample" />
-    <None Include=".git\hooks\pre-push.sample" />
-    <None Include=".git\hooks\pre-rebase.sample" />
-    <None Include=".git\hooks\pre-receive.sample" />
-    <None Include=".git\hooks\prepare-commit-msg.sample" />
-    <None Include=".git\hooks\push-to-checkout.sample" />
-    <None Include=".git\hooks\update.sample" />
-    <None Include=".git\index" />
-    <None Include=".git\info\exclude" />
-    <None Include=".git\logs\HEAD" />
-    <None Include=".git\logs\refs\heads\main" />
-    <None Include=".git\logs\refs\remotes\origin\HEAD" />
-    <None Include=".git\logs\refs\remotes\origin\main" />
-    <None Include=".git\objects\38\19f003bbe79cbb704de16806fadc9da0d1d06f" />
-    <None Include=".git\objects\3c\a5ddb6a95673db5e04ecd9327a7b09902db0a9" />
-    <None Include=".git\objects\4d\3683c2be731c1ce3573362fdb17307b22d4701" />
-    <None Include=".git\objects\5c\debf97657baeb350b366d589e1f9d8bf2600e7" />
-    <None Include=".git\objects\64\0545566349e24ad4164a0a9446788edf9e62a3" />
-    <None Include=".git\objects\69\fbdda5f2e8363182c0467b873885c90f44a82c" />
-    <None Include=".git\objects\7d\835d41c9eac8df94f910e479437c32f45738aa" />
-    <None Include=".git\objects\89\fb64c15d4c2bacfcbd207475fd5d683fa1f26c" />
-    <None Include=".git\objects\c0\8ef4b07ae213c64ea35d11c1ad0df3e22030ea" />
-    <None Include=".git\objects\d2\21e625f53e0b112e93c0ee7d50c325eca6346a" />
-    <None Include=".git\objects\f8\b4888565caadc7510be75682268d6c18edd6de" />
-    <None Include=".git\objects\pack\pack-5c9b11cbf47e851a65db81056162e898b899b0fe.idx" />
-    <None Include=".git\objects\pack\pack-5c9b11cbf47e851a65db81056162e898b899b0fe.pack" />
-    <None Include=".git\packed-refs" />
-    <None Include=".git\refs\heads\main" />
-    <None Include=".git\refs\remotes\origin\HEAD" />
-    <None Include=".git\refs\remotes\origin\main" />
-    <None Include=".vs\aRatoCats-FamilyCrypts\v16\.suo" />
-    <None Include=".vs\ProjectSettings.json" />
-    <None Include=".vs\slnx.sqlite" />
-    <None Include=".vs\VSWorkspaceState.json" />
-    <None Include="README.md" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include=".git\ms-persist.xml" />
-    <Content Include="About\About.xml" />
-    <Content Include="About\Preview.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include=".git\objects\info\" />
-    <Folder Include=".git\refs\tags\" />
-    <Folder Include="Assemblies\" />
-    <Folder Include="Defs\" />
-    <Folder Include="Language\" />
-    <Folder Include="Patch\" />
-    <Folder Include="Sounds\" />
-    <Folder Include="Source\" />
-    <Folder Include="Textures\" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Building_FamilyCrypt.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="HarmonyLoader.cs" />
+    <Compile Include="Harmony_Storage_Tab_Visible.cs" />
+    <Compile Include="Harmony_Designator_Build.cs" />
+    <Compile Include="GraveDefOf.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />

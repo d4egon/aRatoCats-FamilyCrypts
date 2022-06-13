@@ -4,12 +4,13 @@
     "\\About",
     "\\Assemblies",
     "\\Defs",
+    "\\Defs\\ThingDef_Buildings",
     "\\Language",
     "\\Patch",
     "\\Sounds",
     "\\Source",
     "\\Textures"
   ],
-  "SelectedNode": "\\Source",
+  "SelectedNode": "\\Source\\aRatoCats-FamilyCrypts.sln",
   "PreviewInSolutionExplorer": false
 }
