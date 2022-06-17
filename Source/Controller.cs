@@ -13,14 +13,15 @@ namespace FamilyCrypts
 			Controller.settings = base.GetSettings<Settings>();
 		}
 
+		public override void DoSettingsWindowContents(Rect inRect)
+		{
+			Controller.settings.DoWindowContents(inRect);
+		}
+
 		public override string SettingsCategory()
 		{
 			return Translator.Translate("FamilyCrypt_Settings");
 		}
 
-		public override void DoSettingsWindowContents(Rect inRect)
-		{
-			Controller.settings.DoWindowContents(inRect);
-		}
 	}
 }
