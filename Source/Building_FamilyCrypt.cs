@@ -7,11 +7,14 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using Verse;
+using System.Linq;
 
 namespace FamilyCrypts
 {
     public class Building_FamilyCrypt : Building_Grave
     {
+        private const string V = "CommandGraveAssignColonistLabel";
+
         public bool CanAcceptCorpses => CorpseCount < Controller.settings.CorpseCapacity;
 
         public int CorpseCount => innerContainer.Count;
@@ -33,21 +36,16 @@ namespace FamilyCrypts
             return CanAcceptCorpses;
         }
 
+
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            Building_FamilyCrypt buildingFamilyCrypt = null;
-            string str;
-            IEnumerable<Gizmo> gizmos = buildingFamilyCrypt.GetGizmos();
-            if (!buildingFamilyCrypt.CanAcceptCorpses && buildingFamilyCrypt.StorageTabVisible)
+            IEnumerable<Gizmo> gizmos = ((Building_FamilyCrypt)null).GetGizmos();
+            foreach (var (gizmo1, commandAction) in from Gizmo gizmo1 in gizmos
+                                                    let commandAction = gizmo1 as Command_Action
+                                                    select (gizmo1, commandAction))
             {
-                foreach (Gizmo gizmo in StorageSettingsClipboard.CopyPasteGizmosFor(buildingFamilyCrypt.GetStoreSettings()))
-                {
-                    yield return gizmo;
-                }
-            }
-            foreach (Gizmo gizmo1 in gizmos)
-            {
-                Command_Action commandAction = gizmo1 as Command_Action;
+                string str;
                 if (commandAction != null)
                 {
                     str = commandAction.defaultLabel;
@@ -56,11 +54,21 @@ namespace FamilyCrypts
                 {
                     str = null;
                 }
-                if (str == "CommandGraveAssignColonistLabel".Translate())
+
+                if (str == V.Translate())
                 {
                     continue;
                 }
+
                 yield return gizmo1;
+            }
+
+            if (((Building_FamilyCrypt)null).StorageTabVisible)
+            {
+                foreach (Gizmo gizmo1 in StorageSettingsClipboard.CopyPasteGizmosFor(((Building_FamilyCrypt)null).storageSettings))
+                {
+                    yield return gizmo1;
+                }
             }
         }
 
