@@ -7,14 +7,12 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using Verse;
-using System.Linq;
 
 namespace FamilyCrypts
 {
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class Building_FamilyCrypt : Building_Grave
     {
-        private const string V = "CommandGraveAssignColonistLabel";
-
         public bool CanAcceptCorpses => CorpseCount < Controller.settings.CorpseCapacity;
 
         public int CorpseCount => innerContainer.Count;
@@ -40,12 +38,12 @@ namespace FamilyCrypts
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            IEnumerable<Gizmo> gizmos = ((Building_FamilyCrypt)null).GetGizmos();
-            foreach (var (gizmo1, commandAction) in from Gizmo gizmo1 in gizmos
-                                                    let commandAction = gizmo1 as Command_Action
-                                                    select (gizmo1, commandAction))
+            Building_FamilyCrypt buildingFamilyCrypt = null;
+            string str;
+            IEnumerable<Gizmo> gizmos = buildingFamilyCrypt.GetGizmos();
+            foreach (Gizmo gizmo1 in gizmos)
             {
-                string str;
+                Command_Action commandAction = gizmo1 as Command_Action;
                 if (commandAction != null)
                 {
                     str = commandAction.defaultLabel;
@@ -54,23 +52,23 @@ namespace FamilyCrypts
                 {
                     str = null;
                 }
-
-                if (str == V.Translate())
+                if (str == "CommandGraveAssignColonistLabel".Translate())
                 {
                     continue;
                 }
-
                 yield return gizmo1;
             }
 
-            if (((Building_FamilyCrypt)null).StorageTabVisible)
+            if (buildingFamilyCrypt.StorageTabVisible)
             {
-                foreach (Gizmo gizmo1 in StorageSettingsClipboard.CopyPasteGizmosFor(((Building_FamilyCrypt)null).storageSettings))
+                foreach (Gizmo gizmo1 in StorageSettingsClipboard.CopyPasteGizmosFor(buildingFamilyCrypt.storageSettings))
                 {
                     yield return gizmo1;
                 }
             }
         }
+            
+        
 
         public override string GetInspectString()
         {
@@ -84,6 +82,11 @@ namespace FamilyCrypts
             str[4] = corpseCount.ToString();
             stringBuilder.Append(string.Concat(str));
             return stringBuilder.ToString();
+        }
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
         }
     }
 }
