@@ -38,32 +38,22 @@ namespace FamilyCrypts
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
-            Building_FamilyCrypt buildingFamilyCrypt = null;
-            string str;
-            IEnumerable<Gizmo> gizmos = buildingFamilyCrypt.GetGizmos();
-            foreach (Gizmo gizmo1 in gizmos)
+            var gizmos = base.GetGizmos();
+            foreach (var gizmo in gizmos)
             {
-                Command_Action commandAction = gizmo1 as Command_Action;
-                if (commandAction != null)
-                {
-                    str = commandAction.defaultLabel;
-                }
-                else
-                {
-                    str = null;
-                }
-                if (str == "CommandGraveAssignColonistLabel".Translate())
+                if (gizmo is Command_Action commandAction && commandAction.defaultLabel == "CommandGraveAssignColonistLabel".Translate())
                 {
                     continue;
                 }
-                yield return gizmo1;
+                
+                yield return gizmo;
             }
 
-            if (buildingFamilyCrypt.StorageTabVisible)
+            if (StorageTabVisible)
             {
-                foreach (Gizmo gizmo1 in StorageSettingsClipboard.CopyPasteGizmosFor(buildingFamilyCrypt.storageSettings))
+                foreach (var gizmo in StorageSettingsClipboard.CopyPasteGizmosFor(storageSettings))
                 {
-                    yield return gizmo1;
+                    yield return gizmo;
                 }
             }
         }
